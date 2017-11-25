@@ -1,0 +1,46 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "coverage": "npm test -- --coverage",
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build"
+  },
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:3006"
+    }
+  },
+  "dependencies": {
+    "axios": "^0.16.2",
+    "bemto-components": "^1.2.0",
+    "jsonapi-serializer": "^3.5.5",
+    "lodash": "^4.17.4",
+    "materialize-css": "^0.100.2",
+    "moment": "^2.19.2",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-http-request": "^1.0.3",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^4.0.8",
+    "react-scripts": "1.0.10",
+    "redux": "^3.7.2",
+    "redux-bees": "^0.1.7",
+    "redux-form": "^7.1.2",
+    "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.2.0",
+    "styled-components": "^2.2.3",
+    "validator": "^9.0.0"
+  },
+  "devDependencies": {
+    "react-docgen-annotation-resolver": "^1.0.0",
+    "react-styleguidist": "^6.0.32",
+    "redux-devtools-extension": "^2.13.2"
+  }
+}

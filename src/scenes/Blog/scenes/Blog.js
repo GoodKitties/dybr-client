@@ -1,0 +1,1 @@
+/* own blog or other blog pages */
