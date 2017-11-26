@@ -3,7 +3,10 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
+import query from 'services/query';
 import { withRouter, Link } from 'react-router-dom';
+
+import { api } from './api';
 
 class Landing extends React.Component {
   render() {
@@ -14,9 +17,13 @@ class Landing extends React.Component {
           Это тестовая версия новых дневников. <br /> Пока что доступен только самый базовый
           функционал.
         </p>
+
+        {JSON.stringify(this.props)}
       </div>
     );
   }
 }
 
-export default Landing;
+const q = query('profiles', api.getProfiles);
+
+export default q(Landing);

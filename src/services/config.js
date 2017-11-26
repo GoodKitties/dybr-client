@@ -21,6 +21,13 @@ export default {
     };
   },
   afterReject({ status, headers, body }) {
+    console.log('status', status);
+    console.log('headers', headers);
+    console.log('body', body);
+    if (!status) {
+      return Promise.reject({ status: 'Failed to fetch' });
+    }
+
     /*
         if (status === 401) {
         // ie. redirect to login page
@@ -30,15 +37,17 @@ export default {
 
     const { errors } = body;
 
-    errors.forEach(error => {
-      let { pointer } = error.source || {};
-      if (!pointer) return;
+    if (errors) {
+      errors.forEach(error => {
+        let { pointer } = error.source || {};
+        if (!pointer) return;
 
-      const [none, data, attributes, fieldName] = pointer.split('/');
-      pointer = [none, data, attributes, camelCase(fieldName)].join('/');
+        const [none, data, attributes, fieldName] = pointer.split('/');
+        pointer = [none, data, attributes, camelCase(fieldName)].join('/');
 
-      error.source = { pointer };
-    });
+        error.source = { pointer };
+      });
+    }
 
     return Promise.reject({ status, headers, body });
   },
