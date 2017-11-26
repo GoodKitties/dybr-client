@@ -33,6 +33,8 @@
     "redux": "^3.7.2",
     "redux-bees": "^0.1.7",
     "redux-form": "^7.1.2",
+    "redux-localstorage": "^1.0.0-rc5",
+    "redux-localstorage-filter": "^0.1.1",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.2.0",
     "styled-components": "^2.2.3",
