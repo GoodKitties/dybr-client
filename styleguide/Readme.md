@@ -6,7 +6,7 @@ This styleguide is using [react-styleguidist](https://github.com/styleguidist/re
 npm run styleguide
 ```
 
-And then opening its local address in your browser (by fefault — http://localhost:6060/).
+And then opening its local address in your browser (by default — http://localhost:6060/).
 
 ## Which components are shown there?
 
