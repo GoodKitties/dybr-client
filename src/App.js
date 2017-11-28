@@ -11,10 +11,12 @@ const {
 } = scenes;
 
 export const Application = ({ loggedIn }) => {
+  const rootComponent = loggedIn ? Main : Landing;
+
   return (
     <Router>
       <Switch>
-        <Route path="/" component={loggedIn ? Main : Landing} />
+        <Route path="/" component={rootComponent} />
         <Route path="/blogs/:uri" component={Blog} />
         <Route path="/profiles/:uri" component={Profile} />
       </Switch>
