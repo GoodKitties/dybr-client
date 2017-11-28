@@ -2,12 +2,15 @@
   "extends": "airbnb",
   "globals": {
     "document": true,
+    "fetch": true,
     "process": true,
     "window": true
   },
   "parser": "babel-eslint",
   "rules": {
+    "arrow-body-style": "off",
     "no-param-reassign": "off",
+    "prefer-promise-reject-errors": "off",
     "react/jsx-filename-extension": "off",
     "react/forbid-prop-types": "off"
   }

@@ -1,17 +1,14 @@
-import store from '../store';
-import { Deserializer } from 'jsonapi-serializer';
 import { camelCase } from 'lodash';
 
-const deserializer = new Deserializer({ keyForAttribute: 'camelCase' });
-export const deserialize = deserializer.deserialize.bind(deserializer);
+import store from '../store';
+import { getAccessToken } from '../auth/helpers';
 
 export default {
   baseUrl: process.env.REACT_APP_API_ENDPOINT,
   configureHeaders(headers) {
-    const { auth } = store.getState();
-    const { loggedIn, token } = auth || {};
+    const token = getAccessToken(store.getState());
 
-    if (!loggedIn) {
+    if (!token) {
       return headers;
     }
 
@@ -21,24 +18,14 @@ export default {
     };
   },
   afterReject({ status, headers, body }) {
-    console.log('status', status);
-    console.log('headers', headers);
-    console.log('body', body);
     if (!status) {
       return Promise.reject({ status: 'Failed to fetch' });
     }
 
-    /*
-        if (status === 401) {
-        // ie. redirect to login page
-        document.location = '/login';
-        }
-      */
-
     const { errors } = body;
 
     if (errors) {
-      errors.forEach(error => {
+      errors.forEach((error) => {
         let { pointer } = error.source || {};
         if (!pointer) return;
 
