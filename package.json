@@ -9,7 +9,8 @@
     "eject": "react-scripts eject",
     "coverage": "npm test -- --coverage",
     "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build"
+    "styleguide:build": "styleguidist build",
+    "lint": "eslint ."
   },
   "proxy": {
     "/api/*": {
@@ -20,7 +21,14 @@
     "axios": "^0.16.2",
     "babel-eslint": "^8.0.2",
     "bemto-components": "^1.2.0",
+    "enzyme": "^3.2.0",
+    "eslint": "^4.12.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.5.1",
     "hoist-non-react-statics": "^2.3.1",
+    "jest-enzyme": "^4.0.1",
     "jsonapi-serializer": "^3.5.5",
     "jsonwebtoken": "^8.1.0",
     "lodash": "^4.17.4",
@@ -28,12 +36,15 @@
     "moment": "^2.19.2",
     "prop-types": "^15.6.0",
     "react": "^15.6.1",
+    "react-docgen": "^2.20.0",
+    "react-docgen-annotation-resolver": "^1.0.0",
     "react-dom": "^15.6.1",
     "react-http-request": "^1.0.3",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^4.0.8",
     "react-scripts": "1.0.10",
+    "react-styleguidist": "^6.0.32",
     "redux": "^3.7.2",
     "redux-bees": "^0.1.7",
     "redux-form": "^7.1.2",
@@ -45,14 +56,6 @@
     "validator": "^9.0.0"
   },
   "devDependencies": {
-    "eslint": "^4.12.0",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.5.1",
-    "react-docgen": "^2.20.0",
-    "react-docgen-annotation-resolver": "^1.0.0",
-    "react-styleguidist": "^6.0.32",
     "redux-devtools-extension": "^2.13.2"
   }
 }

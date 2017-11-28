@@ -1,14 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { api } from './services/auth/api';
 
+import { isLoggedIn } from './services/auth/helpers';
 import scenes from './scenes';
-const { Blog, Main, Profile, Landing } = scenes;
 
-function Application({ loggedIn }) {
-  // todo: have a "loading" state when loggedIn is undefined
-  console.log('loggedIn', loggedIn);
+const {
+  Blog, Main, Profile, Landing,
+} = scenes;
+
+export const Application = ({ loggedIn }) => {
   return (
     <Router>
       <Switch>
@@ -18,11 +20,16 @@ function Application({ loggedIn }) {
       </Switch>
     </Router>
   );
-}
+};
 
-const mapStateToProps = ({ auth }) => {
-  const { loggedIn } = auth;
-  return { loggedIn };
+Application.propTypes = {
+  loggedIn: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = (state) => {
+  return {
+    loggedIn: isLoggedIn(state),
+  };
 };
 
 export default connect(mapStateToProps)(Application);
