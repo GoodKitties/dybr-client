@@ -2,7 +2,7 @@ import { applyMiddleware, compose, createStore } from 'redux';
 import { middleware as beesMiddleware } from 'redux-bees';
 import ReduxThunk from 'redux-thunk';
 
-import { enhancer as persistState } from './util/redux-localstorage';
+import { enhancer as persistState } from '../util/redux-localstorage';
 
 import reducer from './reducer';
 

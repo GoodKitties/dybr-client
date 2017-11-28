@@ -1,10 +1,14 @@
 {
   "extends": "airbnb",
   "globals": {
+    "document": true,
     "process": true,
     "window": true
   },
+  "parser": "babel-eslint",
   "rules": {
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "react/jsx-filename-extension": "off",
+    "react/forbid-prop-types": "off"
   }
 }

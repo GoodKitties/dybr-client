@@ -1,5 +1,5 @@
 import { compose } from 'redux';
-import persistState, { mergePersistedState } from 'redux-localstorage';
+import persistState, { mergePersistedState } from 'src/util/redux-localstorage';
 import adapter from 'redux-localstorage/lib/adapters/localStorage';
 import filter from 'redux-localstorage-filter';
 
