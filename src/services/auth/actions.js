@@ -18,7 +18,9 @@ export const logIn = ({ email, password }) => {
       },
     })
       .then((response) => {
-        if (response.status === 404) return { error: 'Not Found' };
+        if (response.status === 404) {
+          return Promise.reject({ message: 'Not Found' });
+        }
         return response.json();
       })
       .then(({ error, jwt }) => {

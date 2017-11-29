@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { reducer as form } from 'redux-form';
 
 import { withPersistedState } from '../util/redux-localstorage';
 
@@ -8,6 +9,7 @@ import bees from './bees/reducer';
 const reducer = combineReducers({
   auth,
   bees,
+  form,
 });
 
 export default withPersistedState(reducer);

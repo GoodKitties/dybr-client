@@ -2,6 +2,7 @@
 // has sign in and sign up mechanism
 
 import React from 'react';
+import SignInForm from './components/SignInForm';
 
 export default () => {
   return (
@@ -13,7 +14,7 @@ export default () => {
         Пока что доступен только самый базовый функционал.
       </p>
 
-      {JSON.stringify(this.props)}
+      <SignInForm />
     </div>
   );
 };
