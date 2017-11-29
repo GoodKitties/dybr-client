@@ -14,6 +14,7 @@
 .idea
 .project
 .strong-pm
+.env
 coverage
 node_modules
 npm-debug.log
