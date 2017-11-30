@@ -14,7 +14,6 @@ export default (state, action) => {
       state = { ...DEFAULT_STATE };
       break;
     case AUTH_LOG_IN:
-      console.log(action);
       if (status === 'success') {
         const { jwt } = payload;
         const { sub: userId } = verify(jwt, process.env.REACT_APP_TOKEN_SECRET);
