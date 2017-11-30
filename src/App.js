@@ -2,16 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
+import 'materialize-css/dist/css/materialize.min.css';
 
 import { isLoggedIn } from './services/auth/helpers';
 import scenes from './scenes';
 
 const {
-  Blog, Main, Profile, Landing,
+  Blog,
+  Main,
+  Profile,
+  // Landing,
 } = scenes;
 
 export const Application = ({ loggedIn }) => {
-  const rootComponent = loggedIn ? Main : Landing;
+  const rootComponent = Main; // loggedIn ? Main : Landing;
 
   return (
     <Router>
