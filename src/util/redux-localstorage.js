@@ -7,13 +7,13 @@ export function withPersistedState(reducer) {
   return compose(mergePersistedState())(reducer);
 }
 
-export function filteredStorage(...ignoredKeys) {
+export function filteredStorage(...savedKeys) {
   const storage = adapter(window.localStorage);
-  const keysFilter = filter(...ignoredKeys);
+  const keysFilter = filter(...savedKeys);
   return compose(keysFilter)(storage);
 }
 
-export function enhancer(name, ...ignoredKeys) {
-  const storage = filteredStorage(...ignoredKeys);
+export function enhancer(name, ...savedKeys) {
+  const storage = filteredStorage(...savedKeys);
   return persistState(storage, name);
 }
