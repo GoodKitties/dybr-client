@@ -1,6 +1,6 @@
 {
-  "name": "client",
-  "version": "0.1.0",
+  "name": "dybr-client",
+  "version": "0.0.0-placeholder",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
@@ -13,44 +13,43 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "bemto-components": "^1.2.0",
+    "bemto-components": "^1.6.1",
     "hoist-non-react-statics": "^2.3.1",
     "jsonapi-serializer": "^3.5.5",
     "jsonwebtoken": "^8.1.0",
     "lodash": "^4.17.4",
     "materialize-css": "^0.100.2",
-    "moment": "^2.19.2",
+    "moment": "^2.19.3",
     "prop-types": "^15.6.0",
-    "react": "^15.6.1",
+    "react": "^16.2.0",
     "react-docgen": "^2.20.0",
     "react-docgen-annotation-resolver": "^1.0.0",
-    "react-dom": "^15.6.1",
+    "react-dom": "^16.2.0",
     "react-http-request": "^1.0.3",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^4.0.8",
-    "react-scripts": "1.0.10",
     "redux": "^3.7.2",
     "redux-bees": "^0.1.7",
-    "redux-form": "^7.1.2",
+    "redux-form": "^7.2.0",
     "redux-localstorage": "^1.0.0-rc5",
     "redux-localstorage-filter": "^0.1.1",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.2.0",
-    "styled-components": "^2.2.3",
-    "validator": "^9.0.0",
-    "jest-enzyme": "^4.0.1"
+    "styled-components": "^2.2.4",
+    "validator": "^9.1.2"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.2",
     "enzyme": "^3.2.0",
-    "eslint": "^4.12.0",
+    "eslint": "^4.12.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-import-resolver-webpack": "^0.8.3",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.5.1",
-    "react-styleguidist": "^6.0.32",
-    "redux-devtools-extension": "^2.13.2"
+    "jest-enzyme": "^4.0.1",
+    "react-scripts": "1.0.17",
+    "react-styleguidist": "^6.0.33"
   }
 }
