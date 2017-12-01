@@ -23,6 +23,7 @@ class SignInForm extends React.Component {
   };
 
   renderError = () => {
+    console.log('props', this.props);
     if (this.props.errorMessage) {
       return <div>{this.props.errorMessage}</div>;
     }
@@ -32,16 +33,18 @@ class SignInForm extends React.Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <div className="row">
-        <CardPanel colSizes="sm6 md3" title="Войти">
-          <form onSubmit={handleSubmit(this.handleFormSubmit)}>
-            <Field type="email" name="email" label="Почта" component={InputField} />
-            <Field type="password" name="password" label="Пароль" component={InputField} />
-            <Button type="submit">Войти</Button>
-            {this.renderError()}
-          </form>
-        </CardPanel>
-      </div>
+      <CardPanel colSizes="s6 m3" title="Войти">
+        <form onSubmit={handleSubmit(this.handleFormSubmit)}>
+          <Field type="email" name="email" label="Почта" component={InputField} />
+          <Field type="password" name="password" label="Пароль" component={InputField} />
+          <Button type="submit">Войти</Button>
+
+          {this.renderError()}
+        </form>
+        <a href="" className="small-link">
+          Забыли пароль?
+        </a>
+      </CardPanel>
     );
   }
 }
