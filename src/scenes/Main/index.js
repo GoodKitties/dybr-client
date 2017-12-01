@@ -4,12 +4,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { isLoggedIn } from 'services/auth/helpers';
+import * as actions from 'services/auth/actions';
 import { NavBar, GuestNavBar } from 'components/NavBar';
 import SignInForm from './components/SignInForm';
 
 class Main extends React.Component {
   propTypes = {
     loggedIn: PropTypes.bool.isRequired,
+    logOut: PropTypes.func,
   };
 
   componentDidMount() {
@@ -17,8 +19,9 @@ class Main extends React.Component {
   }
 
   render() {
-    const { loggedIn } = this.props;
+    const { loggedIn, logOut } = this.props;
     const Nav = loggedIn ? NavBar : GuestNavBar;
+    const navBarActions = { onClickExit: logOut };
 
     let TempTextBlock;
     if (loggedIn) {
@@ -45,7 +48,7 @@ class Main extends React.Component {
 
     return (
       <div>
-        <Nav />
+        <Nav {...navBarActions} />
         {TempTextBlock}
       </div>
     );
@@ -58,4 +61,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Main);
+export default connect(mapStateToProps, actions)(Main);
