@@ -23,7 +23,6 @@ class SignInForm extends React.Component {
   };
 
   renderError = () => {
-    // console.log('props', this.props);
     if (this.props.errorMessage) {
       return <div>{this.props.errorMessage}</div>;
     }
@@ -61,8 +60,9 @@ function validate(values) {
   return errors;
 }
 
-const mapStateToProps = ({ user }) => ({
-  errorMessage: user ? user.error : '', // shouldn't it be handled throu redux form? Could not find, this works for now.
+const mapStateToProps = ({ auth }) => ({
+  // shouldn't it be handled throu redux form? Could not find, this works for now.
+  errorMessage: auth && auth.error ? auth.error : null,
 });
 
 export default reduxForm({
