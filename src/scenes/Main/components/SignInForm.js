@@ -32,6 +32,7 @@ class SignInForm extends React.Component {
 
   render() {
     const { handleSubmit } = this.props;
+
     return (
       <CardPanel colSizes="s6 m3" title="Войти">
         <form onSubmit={handleSubmit(this.handleFormSubmit)}>

@@ -42,10 +42,16 @@ const CardPanel = ({
 };
 
 CardPanel.propTypes = {
-  title: PropTypes.string.isRequired,
-  footer: PropTypes.array.isRequired,
-  colSizes: PropTypes.string.isRequired,
-  children: PropTypes.object.isRequired,
+  title: PropTypes.string,
+  footer: PropTypes.array,
+  colSizes: PropTypes.string,
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
+};
+
+CardPanel.defaultProps = {
+  title: null,
+  footer: null,
+  colSizes: '',
 };
 
 export default CardPanel;
