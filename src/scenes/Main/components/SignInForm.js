@@ -23,7 +23,7 @@ class SignInForm extends React.Component {
   };
 
   renderError = () => {
-    console.log('props', this.props);
+    // console.log('props', this.props);
     if (this.props.errorMessage) {
       return <div>{this.props.errorMessage}</div>;
     }
@@ -41,9 +41,7 @@ class SignInForm extends React.Component {
 
           {this.renderError()}
         </form>
-        <a href="" className="small-link">
-          Забыли пароль?
-        </a>
+        <span className="small-link">Забыли пароль?</span>
       </CardPanel>
     );
   }
