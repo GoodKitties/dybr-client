@@ -1,16 +1,13 @@
-import { AUTH_LOG_IN, AUTH_LOG_OUT } from '../action-types';
+import {
+  AUTH_LOG_IN,
+  AUTH_LOG_OUT,
+} from '../action-types';
 
-const TOKEN_ENDPOINT = process.env.REACT_APP_TOKEN_ENDPOINT;
+const AUTH_ENDPOINT = process.env.REACT_APP_AUTH_ENDPOINT;
 
 export const logIn = ({ email, password }) => {
   return (dispatch) => {
-    dispatch({
-      payload: { email, password },
-      status: 'started',
-      type: AUTH_LOG_IN,
-    });
-
-    return fetch(TOKEN_ENDPOINT, {
+    return fetch(`${AUTH_ENDPOINT}/token`, {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: {
@@ -54,8 +51,86 @@ export const logOut = () => ({
   type: AUTH_LOG_OUT,
 });
 
+export const confirmEmail = (token) => {
+  return (dispatch) => {
+    return fetch(`${AUTH_ENDPOINT}/confirm`, {
+      method: 'POST',
+      body: JSON.stringify({ confirmation_token: token }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => {
+        if (response.status === 404) {
+          return Promise.reject({ message: 'Not Found' });
+        }
+        return response.json();
+      })
+      .then(({ error, jwt }) => {
+        if (error) {
+          return Promise.reject({ message: error });
+        }
+
+        return dispatch({
+          payload: { jwt },
+          status: 'success',
+          type: AUTH_LOG_IN,
+        });
+      })
+      .catch((err) => {
+        return dispatch({
+          payload: { message: err.message },
+          status: 'failed',
+          type: AUTH_LOG_IN,
+        });
+      });
+  };
+};
+
+export const resetPassword = ({ token, password, passwordConfirmation }) => {
+  return (dispatch) => {
+    return fetch(`${AUTH_ENDPOINT}/reset_password`, {
+      method: 'POST',
+      body: JSON.stringify({
+        password,
+        password_confirmation: passwordConfirmation,
+        reset_password_token: token,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => {
+        if (response.status === 404) {
+          return Promise.reject({ message: 'Not Found' });
+        }
+        return response.json();
+      })
+      .then(({ error, jwt }) => {
+        if (error) {
+          return Promise.reject({ message: error });
+        }
+
+        return dispatch({
+          payload: { jwt },
+          status: 'success',
+          type: AUTH_LOG_IN,
+        });
+      })
+      .catch((err) => {
+        return dispatch({
+          payload: { message: err.message },
+          status: 'failed',
+          type: AUTH_LOG_IN,
+        });
+      });
+  };
+};
+
 export default {
   logIn,
   logOut,
   storeToken,
+  confirmEmail,
+  resetPassword,
 };
