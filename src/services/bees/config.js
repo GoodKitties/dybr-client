@@ -1,7 +1,12 @@
 import { camelCase } from 'lodash';
 
+import { Deserializer } from 'jsonapi-serializer';
+
 import store from '../store';
 import { getAccessToken } from '../auth/helpers';
+
+const deserializer = new Deserializer({ keyForAttribute: 'camelCase' });
+export const deserialize = deserializer.deserialize.bind(deserializer);
 
 export default {
   baseUrl: process.env.REACT_APP_API_ENDPOINT,
@@ -14,7 +19,7 @@ export default {
 
     return {
       ...headers,
-      Authorization: token,
+      Authorization: `Bearer ${token}`,
     };
   },
   afterReject({ status, headers, body }) {
