@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { isLoggedIn } from 'services/auth/helpers';
 import * as actions from 'services/auth/actions';
-import { NavBar, GuestNavBar } from 'components/NavBar';
+import { NavBar, GuestHeader } from 'components/NavBar';
 import styled, { ThemeProvider } from 'styled-components';
 import theme from 'components/theme';
 import SignInForm from './components/SignInForm';
@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 `;
 
 const Main = ({ loggedIn, logOut }) => {
-  const Nav = loggedIn ? NavBar : GuestNavBar;
+  const Nav = loggedIn ? NavBar : GuestHeader;
   const navBarActions = { onClickExit: logOut };
 
   let TempTextBlock;
