@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 import { isLoggedIn } from 'services/auth/helpers';
 import * as actions from 'services/auth/actions';
 import { NavBar, GuestNavBar } from 'components/NavBar';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
+import theme from 'components/theme';
 import SignInForm from './components/SignInForm';
 import DybrNews from './components/DybrNews';
 
@@ -37,10 +38,13 @@ const Main = ({ loggedIn, logOut }) => {
     );
   }
 
+  // Nav has it's own ThemeProvider wrapper
   return (
     <div>
       <Nav {...navBarActions} />
-      <Wrapper>{TempTextBlock}</Wrapper>
+      <ThemeProvider theme={theme}>
+        <Wrapper>{TempTextBlock}</Wrapper>
+      </ThemeProvider>
     </div>
   );
 };

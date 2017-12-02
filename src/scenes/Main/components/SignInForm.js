@@ -37,7 +37,9 @@ class SignInForm extends React.Component {
         <form onSubmit={handleSubmit(this.handleFormSubmit)}>
           <Field type="email" name="email" label="Почта" component={InputField} />
           <Field type="password" name="password" label="Пароль" component={InputField} />
-          <Button type="submit">Войти</Button>
+          <Button type="submit" primary>
+            Войти
+          </Button>
 
           {this.renderError()}
         </form>

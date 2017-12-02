@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const PanelHeader = styled.div`
-  background-color: #aaa;
-  color: white;
+  background-color: ${props => props.theme.lightGray};
+  color: ${props => props.theme.background};
   text-align: center;
   padding: 5px;
 `;
 
 const PanelContent = styled.div`
-  color: #333;
-  background-color: white;
+  color: ${props => props.theme.darkGray};
+  background-color: ${props => props.theme.background};
   padding: 20px;
 
   .small-link {
@@ -26,7 +26,7 @@ const PanelFooter = styled.div`
   text-align: center;
   padding-bottom: 15px;
   border-radius: 0 0 3px 3px;
-  background-color: white;
+  background-color: ${props => props.theme.background};
 `;
 
 const CardPanel = ({
