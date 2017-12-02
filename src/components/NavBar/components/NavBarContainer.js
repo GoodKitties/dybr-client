@@ -15,7 +15,7 @@ const TopBar = styled.div`
 
 const Container = styled.div`
   height: ${props => props.height};
-  max-width: 1200px;
+  max-width: 1260px;
   padding: 50px 30px;
   margin: 0 auto;
   font-size: 20px;

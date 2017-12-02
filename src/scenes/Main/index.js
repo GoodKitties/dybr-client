@@ -22,7 +22,7 @@ const Main = ({ loggedIn, logOut }) => {
   let TempTextBlock;
   if (loggedIn) {
     TempTextBlock = (
-      <div className="container">
+      <div className="container-d">
         <div className="row">
           <DybrNews />
         </div>
@@ -30,7 +30,7 @@ const Main = ({ loggedIn, logOut }) => {
     );
   } else {
     TempTextBlock = (
-      <div className="container">
+      <div className="container-d">
         <div className="row">
           <SignInForm />
         </div>

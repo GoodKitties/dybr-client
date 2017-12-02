@@ -24,6 +24,12 @@ const PanelContent = styled.div`
     display: block;
     font-size: 0.8rem;
     text-align: center;
+    color: ${props => props.theme.accent};
+  }
+
+  button {
+    margin: 0 auto;
+    display: block;
   }
 `;
 
