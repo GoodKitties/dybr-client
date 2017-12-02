@@ -8,5 +8,7 @@ export default {
   accentDark: '#407145',
   lightGray: '#929292',
   darkGray: '#333333',
+  shadowGray: '#888888',
   background: '#ffffff',
+  lightText: '#ffffff',
 };

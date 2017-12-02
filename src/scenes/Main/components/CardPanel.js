@@ -2,6 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+const Panel = styled.div`
+  padding: 0;
+  box-shadow: 0 4px 7px 1px ${props => props.theme.shadowGray};
+`;
+
 const PanelHeader = styled.div`
   background-color: ${props => props.theme.lightGray};
   color: ${props => props.theme.background};
@@ -34,9 +39,11 @@ const CardPanel = ({
 }) => {
   return (
     <div className={`col ${colSizes}`}>
-      <PanelHeader>{title}</PanelHeader>
-      <PanelContent>{children}</PanelContent>
-      <PanelFooter>{footer}</PanelFooter>
+      <Panel>
+        <PanelHeader>{title}</PanelHeader>
+        <PanelContent>{children}</PanelContent>
+        <PanelFooter>{footer}</PanelFooter>
+      </Panel>
     </div>
   );
 };
