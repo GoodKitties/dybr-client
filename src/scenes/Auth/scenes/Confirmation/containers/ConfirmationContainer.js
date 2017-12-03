@@ -4,8 +4,8 @@ import { confirmEmail } from '../actions';
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    submitConfirmation(token) {
-      return dispatch(confirmEmail(token));
+    submitConfirmation(setState, history, token) {
+      return dispatch(confirmEmail(setState, history, token));
     },
   };
 };

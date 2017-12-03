@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ConfirmationForm = ({ submitConfirmation }) => {
+const ConfirmationForm = ({ submit }) => {
   return (
     <div>
       Confirmation form
@@ -10,7 +10,7 @@ const ConfirmationForm = ({ submitConfirmation }) => {
 };
 
 ConfirmationForm.propTypes = {
-  submitConfirmation: PropTypes.func.isRequired,
+  submit: PropTypes.func.isRequired,
 };
 
 export default ConfirmationForm;

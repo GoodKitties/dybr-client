@@ -7,7 +7,6 @@ import { ConfirmationScene, ResetPasswordScene } from './scenes';
 
 const AuthScene = ({ match }) => {
   const { path } = match;
-
   return (
     <Switch>
       <Route path={`${path}/confirm`} component={ConfirmationScene} />

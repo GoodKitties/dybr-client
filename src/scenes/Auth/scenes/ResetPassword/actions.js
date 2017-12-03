@@ -1,11 +1,15 @@
 import { AUTH_LOG_IN } from 'services/action-types';
 import { AUTH_ENDPOINT } from 'services/auth/constants';
 
-export default function confirmEmail(token) {
+export function resetPassword({ token, password, passwordConfirmation }) {
   return (dispatch) => {
-    return fetch(`${AUTH_ENDPOINT}/confirm`, {
+    return fetch(`${AUTH_ENDPOINT}/reset_password`, {
       method: 'POST',
-      body: JSON.stringify({ confirmation_token: token }),
+      body: JSON.stringify({
+        password,
+        password_confirmation: passwordConfirmation,
+        reset_password_token: token,
+      }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -35,4 +39,4 @@ export default function confirmEmail(token) {
         });
       });
   };
-}
+};
