@@ -3,14 +3,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
 
-import { ConfirmScene, ResetPasswordScene } from './scenes';
+import { ConfirmationScene, ResetPasswordScene } from './scenes';
 
 const AuthScene = ({ match }) => {
   const { path } = match;
 
   return (
     <Switch>
-      <Route path={`${path}/confirm`} component={ConfirmScene} />
+      <Route path={`${path}/confirm`} component={ConfirmationScene} />
       <Route path={`${path}/reset-password`} component={ResetPasswordScene} />
     </Switch>
   );

@@ -23,6 +23,7 @@
     "materializecss": "^1.0.11",
     "moment": "^2.19.3",
     "prop-types": "^15.6.0",
+    "query-string": "^5.0.1",
     "react": "^16.2.0",
     "react-docgen": "^2.20.0",
     "react-docgen-annotation-resolver": "^1.0.0",
