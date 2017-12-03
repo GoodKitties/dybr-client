@@ -4,7 +4,9 @@ import { curry } from 'lodash';
 
 import { tokenFromProps } from 'scenes/Auth/helpers';
 
+import Errors from './components/Errors';
 import Form from './components/Form';
+
 import ConfirmationContainer from './containers/ConfirmationContainer';
 import { FAILED_STATUS, NEW_STATUS } from './constants';
 
@@ -21,6 +23,7 @@ export class ConfirmationScene extends Component {
   }
 
   state = {
+    errors: {},
     status: NEW_STATUS,
     token: null,
   };
@@ -48,25 +51,27 @@ export class ConfirmationScene extends Component {
   }
 
   renderForm() {
-    const { errors, token } = this.state;
+    if (!this.shouldRenderForm()) return null;
+    const { token } = this.state;
 
     return (
       <Form
-        errors={errors}
         submit={this.getSubmitConfirmation()}
         token={token}
       />
     );
   }
 
-  render() {
-    if (this.shouldRenderForm()) {
-      return this.renderForm();
-    }
+  renderErrors() {
+    const { errors } = this.state;
+    return <Errors errors={errors} />;
+  }
 
+  render() {
     return (
       <div>
-        Confirmation in progress...
+        {this.renderErrors()}
+        {this.renderForm()}
       </div>
     );
   }

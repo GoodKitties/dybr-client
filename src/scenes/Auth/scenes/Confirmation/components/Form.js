@@ -3,13 +3,11 @@ import PropTypes from 'prop-types';
 
 class ConfirmationForm extends Component {
   static propTypes = {
-    errors: PropTypes.array,
     submit: PropTypes.func.isRequired,
     token: PropTypes.string,
   };
 
   static defaultProps = {
-    errors: null,
     token: null,
   };
 
@@ -45,20 +43,11 @@ class ConfirmationForm extends Component {
     submit(token);
   }
 
-  renderErrors() {
-    if (!this.props.errors) return null;
-
-    return (
-      <p>Неверный код</p>
-    );
-  }
-
   render() {
     const { token } = this.state;
 
     return (
       <form onSubmit={ev => this.onSubmit(ev)}>
-        {this.renderErrors()}
         <input
           onChange={ev => this.onChange(ev)}
           placeholder="Код подтверждения"
