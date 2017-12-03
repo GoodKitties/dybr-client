@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 // import * as actions from 'services/auth/actions';
 import { Button } from 'components/FormElements';
 import styled from 'styled-components';
-import CardPanel from './CardPanel';
+import CardPanel from 'components/CardPanel';
 
 const NewsWrapper = styled.div``;
 

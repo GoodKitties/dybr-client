@@ -23,7 +23,7 @@ const SignUp = () => {
     <div>
       <GuestHeader />
       <ThemeProvider theme={theme}>
-        <Wrapper>
+        <Wrapper className="container-d">
           <SignUpWizard />
         </Wrapper>
       </ThemeProvider>
