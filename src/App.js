@@ -17,10 +17,10 @@ export const Application = () => {
     <Router>
       <Switch>
         <PrivateRoute path="/wizardry" component={SignUp} />
-        <Route path="/" component={Main} />
         <Route path="/blogs/:uri" component={Blog} />
         <Route path="/profiles/:uri" component={Profile} />
         <Route path="/auth" component={Auth} />
+        <Route path="/" component={Main} />
       </Switch>
     </Router>
   );
