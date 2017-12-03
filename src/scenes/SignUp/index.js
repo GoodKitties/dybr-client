@@ -24,7 +24,9 @@ const SignUp = () => {
       <GuestHeader />
       <ThemeProvider theme={theme}>
         <Wrapper className="container-d">
-          <SignUpWizard />
+          <div className="row">
+            <SignUpWizard onSubmit={() => null /* window.alert('Submit') */} />
+          </div>
         </Wrapper>
       </ThemeProvider>
     </div>
