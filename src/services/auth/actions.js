@@ -16,7 +16,7 @@ export const logIn = ({ email, password }) => {
     })
       .then((response) => {
         if (response.status === 404) {
-          return Promise.reject({ message: 'Not Found' });
+          return Promise.reject({ message: 'Неверный логин или пароль' });
         }
         return response.json();
       })

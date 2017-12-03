@@ -1,6 +1,6 @@
 import { buildApi, get, post, patch, destroy } from 'redux-bees';
 import { serializeFor } from 'util/jsonapi-serealizer';
-import config from '../config';
+import config from 'services/bees/config';
 import { schema as user } from './users';
 
 const endpoints = {

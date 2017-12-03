@@ -9,11 +9,6 @@ import Container from './components/NavBarContainer';
 const GuestNavBar = () => {
   return (
     <Container>
-      <li>
-        <Link to="/main" href="/main">
-          <i className="material-icons">search</i>
-        </Link>
-      </li>
       <li>Привет, незнакомец</li>
     </Container>
   );

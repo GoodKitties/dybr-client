@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { reduxForm, Field } from 'redux-form';
 import * as actions from 'services/auth/actions';
-import Button from 'components/Button';
+import { Button } from 'components/FormElements';
 import InputField from './InputField';
+import CardPanel from './CardPanel';
 
 class SignInForm extends React.Component {
   static defaultProps = {
@@ -30,15 +31,20 @@ class SignInForm extends React.Component {
 
   render() {
     const { handleSubmit } = this.props;
+
     return (
-      <section>
+      <CardPanel colSizes="s6 m3" title="Войти">
         <form onSubmit={handleSubmit(this.handleFormSubmit)}>
           <Field type="email" name="email" label="Почта" component={InputField} />
           <Field type="password" name="password" label="Пароль" component={InputField} />
-          <Button type="submit">Войти</Button>
+          <Button type="submit" primary>
+            Войти
+          </Button>
+
           {this.renderError()}
         </form>
-      </section>
+        <span className="small-link">Забыли пароль?</span>
+      </CardPanel>
     );
   }
 }
@@ -56,8 +62,9 @@ function validate(values) {
   return errors;
 }
 
-const mapStateToProps = ({ user }) => ({
-  errorMessage: user ? user.error : '', // shouldn't it be handled throu redux form? Could not find, this works for now.
+const mapStateToProps = ({ auth }) => ({
+  // shouldn't it be handled throu redux form? Could not find, this works for now.
+  errorMessage: auth && auth.error ? auth.error : null,
 });
 
 export default reduxForm({

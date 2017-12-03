@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Input from 'components/Input';
+import { Input } from 'components/FormElements';
 
 const InputField = ({
   type, input, label, meta: { error, touched },
 }) => {
   return (
-    <div>
+    <div className="input-field">
       <Input
         id={input.name}
         type={type}
@@ -14,7 +14,6 @@ const InputField = ({
         onChange={input.onChange}
         className={touched && error ? 'invalid' : ''}
       />
-
       <label data-error={error} htmlFor={input.name} className="active">
         {label}
       </label>

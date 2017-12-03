@@ -1,6 +1,6 @@
 import { buildApi, post } from 'redux-bees';
 import { serializeFor } from 'util/jsonapi-serealizer';
-import config from '../config';
+import config from 'services/bees/config';
 
 const endpoints = {
   create: { method: post, path: '/users' },
