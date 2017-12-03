@@ -48,9 +48,13 @@ export class ConfirmationScene extends Component {
   }
 
   renderForm() {
+    const { errors, token } = this.state;
+
     return (
       <Form
+        errors={errors}
         submit={this.getSubmitConfirmation()}
+        token={token}
       />
     );
   }
