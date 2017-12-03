@@ -8,21 +8,22 @@ import { isLoggedIn } from './services/auth/helpers';
 import scenes from './scenes';
 
 const {
+  Auth,
   Blog,
   Main,
   Profile,
-  // Landing,
 } = scenes;
 
 export const Application = ({ loggedIn }) => {
-  const rootComponent = Main; // loggedIn ? Main : Landing;
+  const RootComponent = Main; // loggedIn ? Main : Landing;
 
   return (
     <Router>
       <Switch>
-        <Route path="/" component={rootComponent} />
+        <Route exact path="/" component={RootComponent} />
         <Route path="/blogs/:uri" component={Blog} />
         <Route path="/profiles/:uri" component={Profile} />
+        <Route path="/auth" component={Auth} />
       </Switch>
     </Router>
   );

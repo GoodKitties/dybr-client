@@ -1,7 +1,7 @@
-import Landing from './Landing';
+import Auth from './Auth';
 import Main from './Main';
 
 export default {
-  Landing,
+  Auth,
   Main,
 };
