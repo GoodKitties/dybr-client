@@ -6,4 +6,5 @@ export const FAILED_STATUS = 'FAILED';
 export const ERROR_FIELD_NAMES = {
   confirmation_token: 'Код подтверждения',
   email: 'Email',
+  reset_password_token: 'Код сброса',
 };
