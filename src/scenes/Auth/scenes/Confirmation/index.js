@@ -7,7 +7,7 @@ import { tokenFromProps } from 'scenes/Auth/helpers';
 import Errors from '../../components/Errors';
 import Form from './components/Form';
 
-import ConfirmationContainer from './containers/ConfirmationContainer';
+import ConfirmationContainer from './container';
 import { FAILED_STATUS, NEW_STATUS } from '../../constants';
 
 export class ConfirmationScene extends Component {

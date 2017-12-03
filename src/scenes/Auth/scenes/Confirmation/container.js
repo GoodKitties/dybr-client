@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { confirmEmail } from '../actions';
+import { confirmEmail } from './actions';
 
 const mapDispatchToProps = (dispatch) => {
   return {
