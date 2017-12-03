@@ -1,19 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Input } from 'components/FormElements';
+import styled from 'styled-components';
+
+const Input = styled.input``;
 
 const InputField = ({
-  type, input, label, meta: { error, touched },
+  type, input, label, meta: { asyncValidating, error, touched },
 }) => {
   return (
     <div className="input-field">
-      <Input
-        id={input.name}
-        type={type}
-        onBlur={input.onBlur}
-        onChange={input.onChange}
-        className={touched && error ? 'invalid' : ''}
-      />
+      <div className={asyncValidating ? 'async-validating' : ''}>
+        <Input {...input} type={type} className={touched && error ? 'invalid' : ''} />
+      </div>
       <label data-error={error} htmlFor={input.name} className="active">
         {label}
       </label>

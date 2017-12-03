@@ -4,9 +4,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { reduxForm, Field } from 'redux-form';
 import * as actions from 'services/auth/actions';
-import { Button } from 'components/FormElements';
+import { Button, InputField } from 'components/FormElements';
 import CardPanel from 'components/CardPanel';
-import InputField from './InputField';
 
 class SignInForm extends React.Component {
   static defaultProps = {
