@@ -5,13 +5,20 @@ import {
   FAILED_STATUS, PENDING_STATUS, SUCCESS_STATUS,
 } from '../../../constants';
 
-export default function confirmEmail(setState, history, token) {
+export default function resetPassword(
+  setState, history,
+  { token, password, passwordConfirmation },
+) {
   return async (dispatch) => {
     setState({ status: PENDING_STATUS });
 
-    const response = await fetch(`${AUTH_ENDPOINT}/confirm`, {
+    const response = await fetch(`${AUTH_ENDPOINT}/reset_password`, {
       method: 'POST',
-      body: JSON.stringify({ confirmation_token: token }),
+      body: JSON.stringify({
+        password,
+        password_confirmation: passwordConfirmation,
+        reset_password_token: token,
+      }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -40,4 +47,4 @@ export default function confirmEmail(setState, history, token) {
 
     history.push('/');
   };
-}
+};
