@@ -1,7 +1,9 @@
 import { AUTH_LOG_IN } from 'services/action-types';
 import { AUTH_ENDPOINT } from 'services/auth/constants';
 
-import { FAILED_STATUS, PENDING_STATUS, SUCCESS_STATUS } from '../constants';
+import {
+  FAILED_STATUS, PENDING_STATUS, SUCCESS_STATUS,
+} from '../../../constants';
 
 export default function confirmEmail(setState, history, token) {
   return async (dispatch) => {
