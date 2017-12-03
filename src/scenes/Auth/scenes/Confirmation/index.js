@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { tokenFromProps } from 'scenes/Auth/helpers';
 
 import ConfirmationForm from './components/ConfirmationForm';
-import ConfirmationSceneContainer from './container';
+import ConfirmationContainer from '../../containers/ConfirmationContainer';
 
 export class ConfirmationScene extends Component {
   static propTypes = {
@@ -40,4 +40,4 @@ export class ConfirmationScene extends Component {
   }
 }
 
-export default ConfirmationSceneContainer(ConfirmationScene);
+export default ConfirmationContainer(ConfirmationScene);

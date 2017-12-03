@@ -1,22 +1,22 @@
-import {
-  AUTH_LOG_IN,
-  AUTH_LOG_OUT,
-} from '../action-types';
+import { AUTH_LOG_IN } from 'services/action-types';
+import { AUTH_ENDPOINT } from 'services/auth/constants';
 
-import { AUTH_ENDPOINT } from './constants';
-
-export const logIn = ({ email, password }) => {
+export default function resetPassword({ token, password, passwordConfirmation }) {
   return (dispatch) => {
-    return fetch(`${AUTH_ENDPOINT}/token`, {
+    return fetch(`${AUTH_ENDPOINT}/reset_password`, {
       method: 'POST',
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({
+        password,
+        password_confirmation: passwordConfirmation,
+        reset_password_token: token,
+      }),
       headers: {
         'Content-Type': 'application/json',
       },
     })
       .then((response) => {
         if (response.status === 404) {
-          return Promise.reject({ message: 'Неверный логин или пароль' });
+          return Promise.reject({ message: 'Not Found' });
         }
         return response.json();
       })
@@ -39,20 +39,4 @@ export const logIn = ({ email, password }) => {
         });
       });
   };
-};
-
-export const storeToken = ({ jwt }) => ({
-  payload: { jwt },
-  status: 'success',
-  type: AUTH_LOG_IN,
-});
-
-export const logOut = () => ({
-  type: AUTH_LOG_OUT,
-});
-
-export default {
-  logIn,
-  logOut,
-  storeToken,
 };
