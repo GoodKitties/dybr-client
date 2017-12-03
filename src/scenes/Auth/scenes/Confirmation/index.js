@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { curry } from 'lodash';
 
-import { tokenFromProps } from 'scenes/Auth/helpers';
+import { tokenFromProps } from '../../helpers';
 
 import Errors from '../../components/Errors';
 import Form from './components/Form';

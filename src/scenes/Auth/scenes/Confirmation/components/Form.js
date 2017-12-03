@@ -60,8 +60,4 @@ class ConfirmationForm extends Component {
   }
 }
 
-ConfirmationForm.propTypes = {
-  submit: PropTypes.func.isRequired,
-};
-
 export default ConfirmationForm;
